@@ -56,9 +56,25 @@ body {
   margin: 8px;
 }
 .range-age-filter {
-  width: 200px;
-  background-color: green;
+  width: 300px;
+  appearance: none;
+  overflow: hidden;
+  height: 30px;
+  outline: none;
+  border-radius: 20px;
 }
+.range-age-filter::-webkit-slider-thumb {
+  appearance: none;
+  overflow: visible;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: orange;
+  cursor: pointer;
+  box-shadow: -407px 0 0 400px #3071a9;
+}
+
+
 .btn-find {
   cursor: pointer;
   border-radius: 5px;

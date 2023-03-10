@@ -1,10 +1,24 @@
 import { useState } from "react"
-
+import 'animate.css';
+import { useChild } from './child/hooks/useChild';
+import { useNavigate } from "react-router-dom";
 export const HomePage = () => {
-  const [isSelected, setIsSelected] = useState(true);
+  const [isSelected, setIsSelected] = useState<boolean>(true);
+  const navigate = useNavigate();
+  const [rangeValue, setRangeValue] = useState<number>(22);
+  const [gender, setGender] = useState<string>("masculino");
+  const {getChilds} = useChild();
+  const onInputChange = (e:any)=> {
+    setRangeValue(e.target.value);
+  }
+  
+  const onHandlerSubmit = ()=> {
+    getChilds(gender);
+    navigate("/childs");
+  }
   return (
    <>
-   <div className="banner">
+   <div className="banner animate__animated animate__fadeIn" >
     <div className="card-banner-filter">
       <h1>Sponsor a Child in Poverty</h1>
       <p>I'm interested in sponsoring a:</p>
@@ -20,8 +34,9 @@ export const HomePage = () => {
         </div>
       </div>
       <p>Between the ages of:</p>
-      <input type="range" min={1} max={22}   className="range-age-filter" />
-    <button className="btn-find">FIND YOUR MATCH</button>
+      <p>1-{rangeValue}</p>
+      <input onChange={onInputChange} value={rangeValue} type="range" min={1} max={22}   className="range-age-filter" />
+    <button onClick={onHandlerSubmit} className="btn-find">FIND YOUR MATCH</button>
     </div>
    </div>
    </>
