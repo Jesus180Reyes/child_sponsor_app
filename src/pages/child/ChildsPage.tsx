@@ -1,31 +1,45 @@
 import { useEffect, useState } from 'react';
-import '../child/index.css'
 import { useChild } from './hooks/useChild';
 import { hostApi } from '../../api/hostApi';
-import { useNavigate } from 'react-router-dom';
+import "../child/child.css"
+
 import { ChildsResponse } from '../../interfaces/ChildsResponse';
+import { CardChildComponent } from '../../components/child/CardChildComponent';
+import { LoadingPage } from '../../shared/LoadingPage';
 export const ChildsPage = () => {
-  const navigate = useNavigate();
-  const {childs,getChilds}  = useChild();
+  const {childs}  = useChild();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [limit, setLimit] = useState<number>(6);
   const [childsResponse, setChildsResponse] = useState<ChildsResponse>();
-  const getChildsByApi =async ()=> {
+  const getChildsByApi= async ():Promise<ChildsResponse>=> {
     setIsLoading(true);
-    const resp = await hostApi.get(childs.gender ? `/childs?gender=${childs.gender}&limit=5`: `childs/?limit=5`);
-    const data = resp.data;
+    const resp = await hostApi.get<ChildsResponse>(childs.gender ? `/childs?gender=${childs.gender}&limit=${limit}`: `childs/?limit=${limit}`);
+    const {data} = resp;
     setChildsResponse(data);
     setIsLoading(false);
+    return data;
 
   }
   useEffect(() => {
     getChildsByApi();
     
-  }, []);
+  }, [limit]);
+  const onViewMoreClick = ()=> {
+    setLimit(limit + 6);
+
+  }
   
-  if(isLoading) return <h1>Cargando...</h1>
+  if(isLoading) return (<LoadingPage/>);
   return (
     <>
-    <h1>{JSON.stringify(childsResponse?.childs.rows)}</h1>
+    <div className="childs-container ">
+      <CardChildComponent childsResponse={childsResponse!}/>
+      </div>
+      <div className="row-buttons-childs">
+        <button onClick={onViewMoreClick} className='btn-viewMore'>VIEW MORE CHILDREN</button>
+        <button className='btn-randomChild'>SELECT A CHILD FOR ME</button>
+
+      </div>
     </>
     
   )

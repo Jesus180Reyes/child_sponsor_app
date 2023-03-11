@@ -1,0 +1,100 @@
+.childs-container {
+   height: 100%;
+   /* width: 100%; */
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.cards {
+    height: 100%;
+    overflow: hidden;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    /* background-color: green; */
+    flex-wrap: wrap;
+}
+
+
+.card {
+    margin-left: 20px;
+    margin-top: 25px;
+    height: 60vh;
+    width: 20vw;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+}
+.card h1 {
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+.card h2 {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    font-size: .9rem;
+    background-color: orange;
+    color: #fff;
+}
+.card h4 {
+    display: flex;
+    font-size: .9rem;
+    margin-top: 10px;
+    justify-content: center;
+    text-align: center;
+}
+.card p {
+    font-weight: lighter;
+    text-align: center;
+    font-size: .9rem;
+}
+.card button {
+    width: 200px;
+    height: 45px;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: orange;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.row-buttons-childs {
+    /* background-color: red; */
+    margin-top: 30px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-viewMore {
+    cursor: pointer;
+    background-color: orange;
+    padding: 10px;
+    border-radius: 10px;
+    color: #111;
+    font-weight: bold;
+    margin-right: 10px;
+    width: 300px;
+}
+
+.btn-randomChild {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    color: #111;
+    font-weight: bold;
+    margin-left: 10px;
+    width: 300px;
+    border: 2px solid orange;
+}
+
+
+.btn-randomChild:hover {
+    background-color: orange;
+    color: #fff;
+}
