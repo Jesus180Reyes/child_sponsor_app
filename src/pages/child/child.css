@@ -98,3 +98,89 @@
     background-color: orange;
     color: #fff;
 }
+
+.child-details-container {
+    /* background-color: red; */
+    height: 100vh;
+    display: flex;
+}
+
+.row-child-details{
+    /* background-color: green; */
+    text-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.row-child-details .box-img img {
+    height: 65vh;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+.row-child-details .box-img {
+    height: 70vh;
+    width: 35vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    flex-direction: column;
+    /* background-color: yellow; */
+} 
+.row-child-details .box-img p  {
+    background-color: orange;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.row-child-details .box-img span {
+    font-weight: bold;
+    color: indigo;
+}
+.row-child-details span {
+    font-weight: bold;
+    color: orange;
+}
+
+.row-child-details .col-details {
+    /* background-color: blue; */
+    width: 40%;
+    padding: 20px;
+}
+.row-child-details .col-details h1 {
+    font-size: 2.5rem;
+    
+}
+.row-child-details .col-details p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+
+}
+.row-child-details .col-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+
+}
+.row-child-details .col-details  button {
+    width: 300px;
+    height: 50px;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: orange;
+    padding: 5px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}

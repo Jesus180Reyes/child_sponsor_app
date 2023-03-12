@@ -10,7 +10,6 @@ export const CardChildComponent:FC<Props> = ({childsResponse}) => {
   const navigate = useNavigate();
   const onHandlerClick = (child:Row)=> {
     navigate("/childDetails" ,{state:child});
-    console.log(child);
   }
   return (
     <>

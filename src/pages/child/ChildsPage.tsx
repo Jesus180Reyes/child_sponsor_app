@@ -33,7 +33,6 @@ export const ChildsPage = () => {
   }
   const onRandomSelectedChild = ()=> {
     const randomChild = Math.floor(Math.random() * limit);
-    console.log(randomChild);
     navigate("/childDetails",{state: childsResponse?.childs.rows[randomChild]});
   }
   
