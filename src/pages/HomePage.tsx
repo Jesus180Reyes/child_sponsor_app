@@ -6,7 +6,7 @@ export const HomePage = () => {
   const [isSelected, setIsSelected] = useState<boolean>(true);
   const navigate = useNavigate();
   const [rangeValue, setRangeValue] = useState<number>(22);
-  const [gender, setGender] = useState<string>();
+  const [gender, setGender] = useState<string>("either");
   const {getChilds} = useChild();
   const onInputChange = (e:any)=> {
     setRangeValue(e.target.value);
@@ -18,8 +18,11 @@ export const HomePage = () => {
   }
   const onGenderChange = (newGender?:string)=> {
     if(newGender === gender) return;
+
     setGender(newGender!);
+    return newGender;
   }
+ 
   return (
    <>
    <div className="banner animate__animated animate__fadeIn" >
@@ -27,13 +30,13 @@ export const HomePage = () => {
       <h1>Sponsor a Child in Poverty</h1>
       <p>I'm interested in sponsoring a:</p>
       <div className="genders-fr">
-        <div className="custom-label" onClick={()=>onGenderChange("masculino")}>
+        <div className="custom-label" onClick={()=>onGenderChange("masculino")} style={gender === "masculino" ? {"backgroundColor": "orange" } : {}}>
           <h4>Boy</h4>
         </div>
-        <div onClick={()=> onGenderChange("femenino")} className="custom-label">
+        <div onClick={()=> onGenderChange("femenino")} className="custom-label" style={gender === "femenino" ? {"backgroundColor": "orange" } : {}}>
           <h4>Girl</h4>
         </div>
-        <div onClick={()=> onGenderChange()}  className="custom-label" style={isSelected ? {"backgroundColor": "orange" } : {}}>
+        <div onClick={()=> onGenderChange("either")}  className="custom-label" style={gender === "either" ? {"backgroundColor": "orange" } : {}}>
           <h4>Either</h4>
         </div>
       </div>

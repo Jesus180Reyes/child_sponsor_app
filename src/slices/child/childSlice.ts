@@ -4,7 +4,7 @@ export const childSlice = createSlice({
     
 name: 'child',
 initialState: {
-childs: {},
+childs: {gender: "either"},
 },
 reducers: {
 onGetchilds: (state, action  ) => {

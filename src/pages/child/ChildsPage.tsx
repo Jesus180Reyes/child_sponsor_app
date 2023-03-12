@@ -2,18 +2,21 @@ import { useEffect, useState } from 'react';
 import { useChild } from './hooks/useChild';
 import { hostApi } from '../../api/hostApi';
 import "../child/child.css"
-
 import { ChildsResponse } from '../../interfaces/ChildsResponse';
 import { CardChildComponent } from '../../components/child/CardChildComponent';
 import { LoadingPage } from '../../shared/LoadingPage';
+import { useNavigate } from 'react-router-dom';
+
+
 export const ChildsPage = () => {
   const {childs}  = useChild();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [limit, setLimit] = useState<number>(6);
   const [childsResponse, setChildsResponse] = useState<ChildsResponse>();
   const getChildsByApi= async ():Promise<ChildsResponse>=> {
     setIsLoading(true);
-    const resp = await hostApi.get<ChildsResponse>(childs.gender ? `/childs?gender=${childs.gender}&limit=${limit}`: `childs/?limit=${limit}`);
+    const resp = await hostApi.get<ChildsResponse>(childs.gender !== "either" ? `/childs?gender=${childs.gender}&limit=${limit}`: `childs/?limit=${limit}`);
     const {data} = resp;
     setChildsResponse(data);
     setIsLoading(false);
@@ -28,6 +31,11 @@ export const ChildsPage = () => {
     setLimit(limit + 6);
 
   }
+  const onRandomSelectedChild = ()=> {
+    const randomChild = Math.floor(Math.random() * limit);
+    console.log(randomChild);
+    navigate("/childDetails",{state: childsResponse?.childs.rows[randomChild]});
+  }
   
   if(isLoading) return (<LoadingPage/>);
   return (
@@ -37,7 +45,7 @@ export const ChildsPage = () => {
       </div>
       <div className="row-buttons-childs">
         <button onClick={onViewMoreClick} className='btn-viewMore'>VIEW MORE CHILDREN</button>
-        <button className='btn-randomChild'>SELECT A CHILD FOR ME</button>
+        <button onClick={onRandomSelectedChild} className='btn-randomChild'>SELECT A CHILD FOR ME</button>
 
       </div>
     </>
