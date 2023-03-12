@@ -3,7 +3,7 @@ import { useChild } from './hooks/useChild';
 import { hostApi } from '../../api/hostApi';
 import "../child/child.css"
 import { ChildsResponse } from '../../interfaces/ChildsResponse';
-import { CardChildComponent } from '../../components/child/CardChildComponent';
+import { CardChildComponent } from '../../components/';
 import { LoadingPage } from '../../shared/LoadingPage';
 import { useNavigate } from 'react-router-dom';
 
