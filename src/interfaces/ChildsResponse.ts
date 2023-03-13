@@ -13,6 +13,7 @@ export interface Row {
     lastName:   string;
     community:  string;
     code:       string;
+    imgSrc:     string;
     birthday:   Date;
     state:      boolean;
     gender:     string;
