@@ -18,6 +18,7 @@ export const CardChildComponent:FC<Props> = ({childsResponse}) => {
        childsResponse?.childs.rows.map(({birthday,name,community,currentAge,createdAt,uid},i) => {
         return   <div className="card" key={uid}>
         <h2>Waiting { moment(createdAt).startOf('day').fromNow()}</h2>
+        <img src="https://blogs.worldbank.org/sites/default/files/africacan/images/africacan-looking-poverty-through-eyes-child-540.jpg" alt={name} />
         <h1>{name[0].toUpperCase() + name.slice(1)}</h1>
         <h4>Age:<p>{currentAge}</p></h4>
         <h4>BIRTHDAY: <p> {moment(birthday).format("MMM Do")}</p></h4>

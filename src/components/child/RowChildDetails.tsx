@@ -11,7 +11,7 @@ export const RowChildDetails:FC<Props> = ({childResponse,currentChildName}) => {
     <>
     <div className="row-child-details">
         <div className="box-img">
-        <img src="https://cdn.conmebol.com/wp-content/uploads/2018/01/roe_.jpg" alt="" />
+        <img src="https://blogs.worldbank.org/sites/default/files/africacan/images/africacan-looking-poverty-through-eyes-child-540.jpg" alt="" />
         <p>Daniel has been <span>waiting { moment(childResponse.createdAt).startOf('day').fromNow()}</span> for a sponsor.</p>
         </div>
         <div className="col-details">

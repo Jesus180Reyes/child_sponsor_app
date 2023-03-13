@@ -1,45 +1,40 @@
 import { useEffect, useState } from 'react';
 import { useChild } from './hooks/useChild';
-import { hostApi } from '../../api/hostApi';
 import "../child/child.css"
-import { ChildsResponse } from '../../interfaces/ChildsResponse';
-import { CardChildComponent } from '../../components/';
-import { LoadingPage } from '../../shared/LoadingPage';
-import { useNavigate } from 'react-router-dom';
-
-
+import { CardChildComponent,ChildAgeFilter } from '../../components/';
+import { LoadingPage,BannerHeader } from '../../shared/';
 export const ChildsPage = () => {
-  const {childs}  = useChild();
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [limit, setLimit] = useState<number>(6);
-  const [childsResponse, setChildsResponse] = useState<ChildsResponse>();
-  const getChildsByApi= async ():Promise<ChildsResponse>=> {
-    setIsLoading(true);
-    const resp = await hostApi.get<ChildsResponse>(childs.gender !== "either" ? `/childs?gender=${childs.gender}&limit=${limit}`: `childs/?limit=${limit}`);
-    const {data} = resp;
-    setChildsResponse(data);
-    setIsLoading(false);
-    return data;
-
-  }
+  const [gender, setGender] = useState<string>("either");
+  const {limit,childsResponse,isLoading,getChilds,getChildsByApi,onViewMoreClick,onRandomSelectedChild} = useChild();
+  
   useEffect(() => {
     getChildsByApi();
     
-  }, [limit]);
-  const onViewMoreClick = ()=> {
-    setLimit(limit + 6);
-
-  }
-  const onRandomSelectedChild = ()=> {
-    const randomChild = Math.floor(Math.random() * limit);
-    navigate("/childDetails",{state: childsResponse?.childs.rows[randomChild]});
-  }
+  }, [limit,gender]);
   
+  const onGenderChange = (newGender?:string):string | undefined=> {
+    if(newGender === gender) return;
+
+    setGender(newGender!);
+    getChilds(newGender);
+    return newGender;
+  }
   if(isLoading) return (<LoadingPage/>);
   return (
     <>
     <div className="childs-container ">
+    <BannerHeader title='Select a Child to Sponsor' description='Each child pictured urgently needs a sponsor. As you offer encouragement and support in Sponsor App, your love will ignite a lifetime of hope. Sponsor a child today for only $38 per month.'/>
+      <div className="filter-box">
+        <div className="gender-filter">
+          <p>Im looking for a:</p>
+          <div className="gender-buttons">
+            <button onClick={()=>onGenderChange("femenino")} style={gender === "femenino" ? {"backgroundColor": "orange" } : {}}>GIRL</button>
+            <button onClick={()=>onGenderChange("masculino")} style={gender === "masculino" ? {"backgroundColor": "orange" } : {}}>BOY</button>
+            <button onClick={()=>onGenderChange('either')} style={gender === "either" ? {"backgroundColor": "orange" } : {}}>Either</button>
+          </div>
+          </div>
+          <ChildAgeFilter/>
+      </div>
       <CardChildComponent childsResponse={childsResponse!}/>
       </div>
       <div className="row-buttons-childs">

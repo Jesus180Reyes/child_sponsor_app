@@ -3,20 +3,14 @@ import 'animate.css';
 import { useChild } from './child/hooks/useChild';
 import { useNavigate } from "react-router-dom";
 export const HomePage = () => {
-  const [isSelected, setIsSelected] = useState<boolean>(true);
   const navigate = useNavigate();
-  const [rangeValue, setRangeValue] = useState<number>(22);
   const [gender, setGender] = useState<string>("either");
-  const {getChilds} = useChild();
-  const onInputChange = (e:any)=> {
-    setRangeValue(e.target.value);
-  }
-  
-  const onHandlerSubmit = ()=> {
+  const {getChilds,rangeValue,onInputChange} = useChild();
+  const onHandlerSubmit = ():void => {
     getChilds(gender);
     navigate("/childs");
   }
-  const onGenderChange = (newGender?:string)=> {
+  const onGenderChange = (newGender?:string):string | undefined => {
     if(newGender === gender) return;
 
     setGender(newGender!);
