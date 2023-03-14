@@ -2,6 +2,7 @@ import { useState } from "react"
 import 'animate.css';
 import { useChild } from './child/hooks/useChild';
 import { useNavigate } from "react-router-dom";
+import { Navbar } from '../shared/Navbar';
 export const HomePage = () => {
   const navigate = useNavigate();
   const [gender, setGender] = useState<string>("either");
@@ -19,6 +20,7 @@ export const HomePage = () => {
  
   return (
    <>
+    <Navbar/>
    <div className="banner animate__animated animate__fadeIn" >
     <div className="card-banner-filter">
       <h1>Sponsor a Child in Poverty</h1>

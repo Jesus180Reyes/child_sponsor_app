@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { useChild } from './hooks/useChild';
 import "../child/child.css"
 import { CardChildComponent,ChildAgeFilter } from '../../components/';
-import { LoadingPage,BannerHeader } from '../../shared/';
+import { LoadingPage,BannerHeader,Navbar } from '../../shared/';
 export const ChildsPage = () => {
   const [gender, setGender] = useState<string>("either");
-  const {limit,childsResponse,isLoading,getChilds,getChildsByApi,onViewMoreClick,onRandomSelectedChild} = useChild();
+  const {limit,setLimit,childsResponse,isLoading,getChilds,getChildsByApi,onViewMoreClick,onRandomSelectedChild} = useChild();
   
   useEffect(() => {
     getChildsByApi();
@@ -14,15 +14,16 @@ export const ChildsPage = () => {
   
   const onGenderChange = (newGender?:string):string | undefined=> {
     if(newGender === gender) return;
-
     setGender(newGender!);
     getChilds(newGender);
+    setLimit(6);
     return newGender;
   }
   if(isLoading) return (<LoadingPage/>);
   return (
     <>
-    <div className="childs-container ">
+    <div className="childs-container">
+    <Navbar/>
     <BannerHeader title='Select a Child to Sponsor' description='Each child pictured urgently needs a sponsor. As you offer encouragement and support in Sponsor App, your love will ignite a lifetime of hope. Sponsor a child today for only $38 per month.'/>
       <div className="filter-box">
         <div className="gender-filter">
