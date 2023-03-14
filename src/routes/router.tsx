@@ -5,6 +5,7 @@ import { ChildsPage } from '../pages/child/ChildsPage';
 import { ChildDetails } from '../pages/child/ChildDetails';
 import { LoginPage } from '../pages/auth/LoginPage';
 import { RegisterPage } from '../pages/auth/RegisterPage';
+import { SearchChild } from '../pages/child/SearchChild';
 
 
 export const router = createBrowserRouter([
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
           {
               path: "childDetails",
               element: <ChildDetails/>
+          },
+          {
+              path: "search",
+              element: <SearchChild/>
           },
           
             { path: '*', element: <Navigate to="/" /> },

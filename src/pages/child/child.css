@@ -261,6 +261,13 @@
     align-items: center;
     justify-content: space-around;
 }
+.navbar a {
+    text-decoration: none;
+    background-color: transparent;   
+}
+.navbar a:hover {
+    color: orange;
+}
 .row-items {
     /* background-color: green; */
     width: 55vw;
@@ -294,4 +301,10 @@
 }
 .search_user_items i {
     cursor: pointer;
+}
+
+.lbl-result-search {
+    font-size: 2rem;
+    margin-left: 30px;
+    font-weight: bold;
 }
