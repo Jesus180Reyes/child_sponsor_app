@@ -1,11 +1,8 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { App } from "../App";
-import { HomePage } from '../pages/HomePage';
-import { ChildsPage } from '../pages/child/ChildsPage';
-import { ChildDetails } from '../pages/child/ChildDetails';
-import { LoginPage } from '../pages/auth/LoginPage';
-import { RegisterPage } from '../pages/auth/RegisterPage';
-import { SearchChild } from '../pages/child/SearchChild';
+import { HomePage,ChildCart,SearchChild,ChildDetails,ChildsPage } from '../pages/child/';
+import { LoginPage,RegisterPage } from '../pages/auth/';
+import { ProfilePage } from '../pages/auth/ProfilePage';
 
 
 export const router = createBrowserRouter([
@@ -29,18 +26,23 @@ export const router = createBrowserRouter([
               path: "search",
               element: <SearchChild/>
           },
+          {
+              path: "cart",
+              element: <ChildCart/>
+          },
           
             { path: '*', element: <Navigate to="/" /> },
         ],
         
     },
     {
-        path: "/auth",
+        path: "auth",
         element: <App/>,
         children: [
             {path: "login",element: <LoginPage/>},
             {path: "register",element: <RegisterPage/>},
-            { path: '*', element: <Navigate to="/auth" /> },
+            {path: "profile",element: <ProfilePage/>},
+            { path: '*', element: <Navigate to="/auth/login" /> },
             {element: <LoginPage/>, index:true},
         ]
         

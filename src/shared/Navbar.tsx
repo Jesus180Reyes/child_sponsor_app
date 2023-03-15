@@ -7,6 +7,7 @@ export const Navbar = () => {
 
   const onSubmit = (e:any) => {
     e.preventDefault();
+    if(inputHandlerValue.length <1) return;
     navigate("/search",{state: {input:inputHandlerValue}});
   }
 
@@ -34,7 +35,7 @@ export const Navbar = () => {
           </form>
           <i className="fa-solid fa-magnifying-glass" onClick={onSubmit}></i>
           <i className="fa-sharp fa-solid fa-cart-shopping"></i>
-          <i className="fa-solid fa-user"></i>
+          <i className="fa-solid fa-user" onClick={()=> navigate("/auth/profile")}></i>
 
 
         </div>
