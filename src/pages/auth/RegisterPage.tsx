@@ -1,15 +1,11 @@
 import { CustomFormAuth } from "../../components/auth/CustomFormAuth"
 import { Navbar } from "../../shared"
-import { useState } from 'react';
-import { alertDialog } from "../../helpers/alertDialog";
+import { useAuth } from './hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 export const RegisterPage = () => {
-  const [nameRegister, setNameRegister] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
-  const [addressRegister, setAddressRegister] = useState<string>("");
-  const [phoneNumberRegister, setPhoneNumberRegister] = useState<string>("");
-  const [emailRegister, setEmailRegister] = useState<string>("");
-  const [passwordRegister, setPasswordRegister] = useState<string>("");
+  const navigate = useNavigate();
+  const { nameRegister,setNameRegister,lastName,setLastName,addressRegister,setAddressRegister,phoneNumberRegister,setPhoneNumberRegister,emailRegister,setEmailRegister,passwordRegister,setPasswordRegister,registerUserAuth} = useAuth();
    const registerInputData = [ 
     {
       title: "Name",
@@ -52,13 +48,17 @@ export const RegisterPage = () => {
   
   
   ];
-  const onSubmit = (e:any)=> {
+  const onSubmit = async(e:any)=> {
     e.preventDefault();
-    alertDialog("LOGIN", `nameRegister
-    ${lastName},
-    ${addressRegister},
-    ${emailRegister},
-    ${passwordRegister},`, "success");
+    await registerUserAuth();
+    navigate("/auth/profile", {replace: true});
+    setNameRegister("");
+    setLastName("");
+    setAddressRegister("");
+    setPhoneNumberRegister("");
+    setEmailRegister("");
+    setPasswordRegister("");
+    
   }
   return (
     <>

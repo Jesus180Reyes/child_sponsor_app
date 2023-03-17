@@ -1,14 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import { alertDialog } from '../../helpers/alertDialog';
-import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { Navbar } from '../../shared';
+import { LoadingPage, Navbar } from '../../shared';
 import { useAuth } from './hooks/useAuth';
 
 export const ProfilePage = () => {
     const navigate = useNavigate();
-    const {status,user} = useSelector((state:any)=> state.auth);
-    const {logOutUserAuth} = useAuth();
+    const {logOutUserAuth,isLoading,user,status} = useAuth();
     const isUserAuthenticated = () => {
       if(status === "Not-Authenticated") return navigate("/auth/login"); 
     }
@@ -17,7 +14,7 @@ export const ProfilePage = () => {
     
       
     }, [status]);
-    
+    if(isLoading) return (<LoadingPage/>);
   return (
     <>
     <Navbar/>
