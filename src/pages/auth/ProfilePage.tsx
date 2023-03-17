@@ -1,25 +1,29 @@
 import { useNavigate } from 'react-router-dom';
 import { alertDialog } from '../../helpers/alertDialog';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { Navbar } from '../../shared';
+import { useAuth } from './hooks/useAuth';
 
 export const ProfilePage = () => {
     const navigate = useNavigate();
-    const {status} = useSelector((state:any)=> state.auth);
+    const {status,user} = useSelector((state:any)=> state.auth);
+    const {logOutUserAuth} = useAuth();
     const isUserAuthenticated = () => {
-        if(status === "Not-Authenticated") {
-          alertDialog("You need to Login","You need to login to see the respective page.", "error");
-          return navigate("/auth/login");
-          
-        } 
+      if(status === "Not-Authenticated") return navigate("/auth/login"); 
     }
     useEffect(() => {
     isUserAuthenticated();
     
       
-    }, []);
+    }, [status]);
     
   return (
-    <div>ProfilePage</div>
+    <>
+    <Navbar/>
+    <h1>{status}</h1>
+    <h1>{JSON.stringify(user)}</h1>
+    <button onClick={()=> logOutUserAuth()}>Sing Out</button>
+    </>
   )
 }

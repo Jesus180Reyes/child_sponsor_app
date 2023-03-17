@@ -7,7 +7,8 @@ export const HomePage = () => {
   const navigate = useNavigate();
   const [gender, setGender] = useState<string>("either");
   const {getChilds,rangeValue,onInputChange} = useChild();
-  const onHandlerSubmit = ():void => {
+  const onHandlerSubmit = (e:any):void => {
+    e.preventDefault();
     getChilds(gender);
     navigate("/childs");
   }

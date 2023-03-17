@@ -18,16 +18,16 @@ export const Navbar = () => {
     <>
         <div className="navbar">
         <div className="logo">
-          <h1><a href='/'>LOGO</a></h1>
+          <h1 onClick={(e:any)=> { navigate("/")}}><a >LOGO</a></h1>
           {/* <img src="" alt="" /> */}
         </div>
         <div className="row-items">
-          <h3><a href='/'>Home</a></h3>
+          <h3><a  onClick={(e:any)=> { navigate("/")}}>Home</a></h3>
           <h3><a>Ways to donate</a></h3>
           <h3><a>About Us</a></h3>
           <h3><a>Blog</a></h3>
           <h3><a>Connect with us</a></h3>
-          <h3><a href='/childs'>Sponsor a Child</a></h3>
+          <h3 onClick={()=> navigate("/childs")}><a>Sponsor a Child</a></h3>
         </div>
         <div className="search_user_items">
           <form onSubmit={onSubmit}>

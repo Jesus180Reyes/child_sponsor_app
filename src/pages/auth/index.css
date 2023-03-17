@@ -3,13 +3,19 @@
 }
 
 .auth-box {
-    height: 100vh;
+    /* height: 100vh; */
+    margin-top: 50px;
     background-color: #f1f1f1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     
+}
+.auth-box span {
+    cursor: pointer;
+    color: orange;
+    font-weight: 500;
 }
 
 .auth-box .form-container {
@@ -19,6 +25,8 @@
     height: 70%;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding: 20px;
     background-color: #fff;
     border-radius: 5px;
 }
@@ -26,6 +34,7 @@
 .auth-box .form-container h1{
     font-size: 2.5rem;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 .auth-box .form-container input{
     height: 50px;
