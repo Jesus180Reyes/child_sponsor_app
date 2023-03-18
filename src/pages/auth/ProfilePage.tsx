@@ -19,9 +19,14 @@ export const ProfilePage = () => {
   return (
     <>
     <Navbar/>
-    <h1>{status}</h1>
-    <h1>{JSON.stringify(user)}</h1>
-    <button onClick={()=> logOutUserAuth()}>Sing Out</button>
+    <div className="profile-container">
+      <div className="profile-box">
+      <h1>{status}</h1>
+      <h1>{JSON.stringify(user)}</h1>
+      <button onClick={()=> logOutUserAuth()}>Sing Out</button>
+
+      </div>
+    </div>
     </>
   )
 }

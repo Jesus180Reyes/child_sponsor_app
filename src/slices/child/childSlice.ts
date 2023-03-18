@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { alertDialog } from '../../helpers/alertDialog';
 import { Row } from '../../interfaces/ChildsResponse';
 
 // Define a type for the slice state
@@ -19,7 +20,16 @@ onGetchilds: (state, action  ) => {
     state.childs = action.payload;
 },
 onChildCartAdded: (state,action:PayloadAction<Row>) => {
-    state.childCart.push(action.payload);
+    state.childCart.map(e => {
+    if(action.payload.uid === e.uid) {
+      alertDialog("Este child ya esta agregado", "ya esta agregado", "error");
+      return;
+    }
+    
+    
+  })
+  state.childCart.push(action.payload);
+ 
 }
 }
 });

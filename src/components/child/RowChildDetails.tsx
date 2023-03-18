@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { onChildCartAdded } from "../../slices/child/childSlice";
+import { useChild } from '../../pages/child/hooks/useChild';
+import { alertDialog } from '../../helpers/alertDialog';
 
 interface Props {
     childResponse: Row;
@@ -13,6 +15,7 @@ interface Props {
 export const RowChildDetails:FC<Props> = ({childResponse,currentChildName}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const {childCart} = useChild();
   const onChildSelected =async () =>  {
     Swal.fire({
       title: 'Are you sure?',
@@ -33,7 +36,7 @@ export const RowChildDetails:FC<Props> = ({childResponse,currentChildName}) => {
         dispatch(onChildCartAdded(childResponse));
 
       }
-    })
+    }).then()
 
 
   }

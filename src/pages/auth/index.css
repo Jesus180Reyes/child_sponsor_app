@@ -58,3 +58,25 @@
     font-weight: bold;
     margin-bottom: 30px;
 }
+
+.profile-container {
+    text-align: center;
+    /* background-color: red; */
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-box button {
+    background-color: orange;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 30px;
+}  

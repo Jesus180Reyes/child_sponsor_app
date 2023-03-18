@@ -107,3 +107,40 @@ body {
   height: 80px;
   width: 80px;
 }
+
+.cart-empty-container {
+  /* background-color: red; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-empty-box {
+  /* background-color: green; */
+  /* height: 60%; */
+  padding: 20px;
+}
+.cart-empty-box img {
+  /* background-color: yellow; */
+  height: 300px;
+  width: 100%;
+}
+.cart-empty-box h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.cart-empty-box button {
+  cursor: pointer;
+  width: 100%;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 1rem;
+  background-color: orange;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 10px;
+}

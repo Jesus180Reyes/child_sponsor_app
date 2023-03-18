@@ -8,8 +8,8 @@ export const ChildCartComponent:FC<Props> = ({childCart}) => {
   return (
     <>
     {
-    childCart.map((child:Row) => {
-          return <div className="products-box">
+    childCart.map((child:Row,i) => {
+          return <div className="products-box" key={i}>
           <div className="image-box-cart">
             <img src={child.imgSrc} alt={child.name} />
           </div>

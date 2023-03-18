@@ -40,7 +40,7 @@ export const Navbar = () => {
           <i className="fa-sharp fa-solid fa-cart-shopping cart-icon"></i>
           {
             childCart.length
-            ?  <div className="circle-notification-cart">
+            ?  <div className="circle-notification-cart animate__animated animate__bounce animate__delay-5s">
             <p>{childCart.length}</p>
           </div>
           : undefined
