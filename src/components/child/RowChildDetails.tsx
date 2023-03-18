@@ -1,12 +1,42 @@
 import moment from "moment"
 import {  Row } from '../../interfaces/ChildsResponse';
 import { FC } from 'react';
+import Swal from "sweetalert2";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { onChildCartAdded } from "../../slices/child/childSlice";
 
 interface Props {
     childResponse: Row;
     currentChildName:string
 }
 export const RowChildDetails:FC<Props> = ({childResponse,currentChildName}) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const onChildSelected =async () =>  {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "Are you sure you want to select this child?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, choose it'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Added to cart!',
+          'Child added to the cart.',
+          'success'
+        );
+        navigate("/cart");
+        dispatch(onChildCartAdded(childResponse));
+
+      }
+    })
+
+
+  }
   return (
     <>
     <div className="row-child-details">
@@ -22,7 +52,7 @@ export const RowChildDetails:FC<Props> = ({childResponse,currentChildName}) => {
           <h3>Gender: {childResponse.gender}</h3>
           <h3>LOCATION: {childResponse.community}</h3>
           <h3>CHILD ID: {childResponse.code}</h3>
-          <button className='btn-sponsorChild'>SPONSOR {currentChildName}</button>
+          <button className='btn-sponsorChild' onClick={onChildSelected}>SPONSOR {currentChildName}</button>
         </div>
       </div>
     

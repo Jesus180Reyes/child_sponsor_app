@@ -1,24 +1,27 @@
+import { Navbar } from '../../shared';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { alertDialog } from '../../helpers/alertDialog';
+import { ChildCartComponent } from '../../components/child/ChildCartComponent';
 
 export const ChildCart = () => {
-  const {status} = useSelector((state:any) => state.auth);
-  const  navigate = useNavigate();
-  const isUserAuthenticated = () => {
-    if(status === "Not-Authenticated") {
-      alertDialog("You need to Login","You need to login to see the respective page.", "error");
-      navigate("/auth") ;
-
-    } 
-  }
-  useEffect(() => {
-  isUserAuthenticated();
-    
-  }, [])
-  
+  const {childCart} = useSelector((state:any) => state.child);
+  document.title = `Cart | ${childCart.length} children on the cart`;
   return (
-    <div>ChildCart</div>
+    <>
+    <Navbar/>
+    <div className="cart-container">
+      <div className="cart-card">
+      <h1>Cart</h1>
+      <h1>Price</h1>
+      </div>
+      <hr/>
+      <ChildCartComponent childCart={childCart}/>
+      <div className="payment-box">
+        <p>Subtotal ({childCart.length} children) <h1>US${38.00 * childCart.length}.00</h1></p>
+        <button>Proceder al pago</button>
+      </div>
+      
+    </div>
+  
+    </>
   )
 }

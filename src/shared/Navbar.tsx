@@ -34,7 +34,7 @@ export const Navbar = () => {
           <input value={inputHandlerValue} onChange={onInputHandlerChange} type="text" placeholder='Search by code:'/>
           </form>
           <i className="fa-solid fa-magnifying-glass" onClick={onSubmit}></i>
-          <i className="fa-sharp fa-solid fa-cart-shopping"></i>
+          <i className="fa-sharp fa-solid fa-cart-shopping"onClick={()=> navigate("/cart")}></i>
           <i className="fa-solid fa-user" onClick={()=> navigate("/auth/profile")}></i>
 
 

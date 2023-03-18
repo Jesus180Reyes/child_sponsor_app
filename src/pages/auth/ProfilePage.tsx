@@ -15,6 +15,7 @@ export const ProfilePage = () => {
       
     }, [status]);
     if(isLoading) return (<LoadingPage/>);
+    document.title = `${user.name} ${user.lastName} | Dashboard`
   return (
     <>
     <Navbar/>

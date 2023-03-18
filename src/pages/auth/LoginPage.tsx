@@ -42,7 +42,7 @@ const onSubmit = async(e:any)=> {
   return (
     <>
     <Navbar/>
-    <div className="loginAuth-container">
+    <div className="loginAuth-container animate__animated animate__fadeIn">
       <CustomFormAuth title="Login" inputs={loginInputData} onSubmit={onSubmit} label="You don't have a account? Sign on." route="/auth/register" />
     </div>
     </>
