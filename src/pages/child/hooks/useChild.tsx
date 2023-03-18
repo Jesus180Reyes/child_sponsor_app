@@ -12,7 +12,7 @@ export const useChild = () => {
   const [childsResponse, setChildsResponse] = useState<ChildsResponse>();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {childs} = useSelector((state:any) => state.child);
+  const {childs,childCart} = useSelector((state:any) => state.child);
 
     const getChilds = ( gender?:string):void => {
         
@@ -49,6 +49,7 @@ export const useChild = () => {
     childsResponse,
     limit,
     rangeValue,
+    childCart,
     // * Metodos
     getChilds,
     getChildsByApi,

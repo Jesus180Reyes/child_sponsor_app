@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useChild } from '../pages/child/hooks/useChild';
 
 export const Navbar = () => {
   const [inputHandlerValue, setinputHandlerValue] = useState<string>("");
+  const {childCart}  =  useChild();
   const navigate = useNavigate();
 
   const onSubmit = (e:any) => {
@@ -34,7 +36,16 @@ export const Navbar = () => {
           <input value={inputHandlerValue} onChange={onInputHandlerChange} type="text" placeholder='Search by code:'/>
           </form>
           <i className="fa-solid fa-magnifying-glass" onClick={onSubmit}></i>
-          <i className="fa-sharp fa-solid fa-cart-shopping"onClick={()=> navigate("/cart")}></i>
+          <div className="cart-notification-container" onClick={()=> navigate("/cart")}>
+          <i className="fa-sharp fa-solid fa-cart-shopping cart-icon"></i>
+          {
+            childCart.length
+            ?  <div className="circle-notification-cart">
+            <p>{childCart.length}</p>
+          </div>
+          : undefined
+          }
+          </div>
           <i className="fa-solid fa-user" onClick={()=> navigate("/auth/profile")}></i>
 
 

@@ -261,6 +261,29 @@
     align-items: center;
     justify-content: space-around;
 }
+.cart-notification-container {
+    cursor: pointer;
+    position: relative;
+}
+.circle-notification-cart {
+    background-color: orange;
+    padding: 6px;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    top: -2px;
+    left: -7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle-notification-cart p {
+    text-align: center;
+    font-size: .7rem;
+    font-weight: bold;
+} 
 .navbar a {
     text-decoration: none;
     background-color: transparent;   
