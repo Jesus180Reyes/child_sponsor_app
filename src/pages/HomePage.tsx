@@ -3,6 +3,7 @@ import 'animate.css';
 import { useChild } from './child/hooks/useChild';
 import { useNavigate } from "react-router-dom";
 import { Navbar } from '../shared/Navbar';
+import { Footer } from "../shared";
 export const HomePage = () => {
   const navigate = useNavigate();
   const [gender, setGender] = useState<string>("either");
@@ -42,7 +43,8 @@ export const HomePage = () => {
       <input onChange={onInputChange} value={rangeValue} type="range" min={1} max={22}   className="range-age-filter" />
     <button onClick={onHandlerSubmit} className="btn-find">FIND YOUR MATCH</button>
     </div>
-   </div>
+    </div>
+    <Footer/>
    </>
   )
 }

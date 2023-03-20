@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { hostApi } from "../../api/hostApi";
 import { ChildsResponse } from "../../interfaces/ChildsResponse";
-import { Navbar } from "../../shared";
+import { Footer, Navbar } from "../../shared";
 import { useLocation } from 'react-router-dom';
 import { CardChildComponent } from "../../components";
 import Swal from "sweetalert2";
@@ -31,6 +31,7 @@ export const SearchChild = () => {
    <div className="child-searched-container">
     <p className="lbl-result-search">Results of "{location.state.input.toUpperCase()}"</p>
     <CardChildComponent childsResponse={childByCode!}/>
+    {/* <Footer/> */}
     </div>
    </>
   )

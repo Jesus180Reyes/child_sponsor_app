@@ -23,7 +23,7 @@ export const ProfilePage = () => {
       <div className="profile-box">
       <h1>{status}</h1>
       <h1>{JSON.stringify(user)}</h1>
-      <button onClick={()=> logOutUserAuth()}>Sing Out</button>
+      <button onClick={()=> logOutUserAuth()}>Sign Out</button>
 
       </div>
     </div>

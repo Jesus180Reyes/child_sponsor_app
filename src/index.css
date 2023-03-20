@@ -144,3 +144,71 @@ body {
   font-weight: bold;
   margin-top: 10px;
 }
+.footer-container {
+  /* margin-top: 50px; */
+  padding: 30px;
+  background-color: #EBF0F5;
+  height: 280px;
+  
+}
+.footer-box {
+  height: 100%;
+  /* background-color: green; */
+  display: flex;
+  align-items: start;
+  justify-content: space-around;
+}
+.footer-box .col-logo {
+  /* background-color: pink; */
+  width: 25vw;
+}
+.footer-box .col-items-footer {
+  /* background-color: red; */
+  padding: 10px;
+}
+.footer-box .col-items-footer h2 {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 700;
+
+}
+.footer-box .col-items-footer p {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: 10px;
+}
+.footer-box .col-payment-methods  {
+  /* background-color: red; */
+  padding: 10px;
+  text-align: center;
+}
+.footer-box .row-carts-items {
+  /* background-color: green;
+  font-size: 2rem; */
+  margin: 20px;
+}
+.footer-box .col-payment-methods h2 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.footer-box .row-carts-items i {
+  margin: 10px;
+  font-size: 2rem;
+}
+.copyright-autor {
+  background-color: #24303Eed;
+  text-align: center;
+  font-size: 1rem;
+  padding: 10px;
+  color: #fff;
+}
+.copyright-autor span {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.copyright-autor a {
+  text-decoration: none;
+  color: #fff;
+}

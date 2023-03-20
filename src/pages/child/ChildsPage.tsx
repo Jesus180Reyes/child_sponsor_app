@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useChild } from './hooks/useChild';
 import "../child/child.css"
 import { CardChildComponent,ChildAgeFilter } from '../../components/';
-import { LoadingPage,BannerHeader,Navbar } from '../../shared/';
+import { LoadingPage,BannerHeader,Navbar, Footer } from '../../shared/';
 export const ChildsPage = () => {
   const [gender, setGender] = useState<string>("either");
   const {limit,setLimit,childsResponse,isLoading,getChilds,getChildsByApi,onViewMoreClick,onRandomSelectedChild} = useChild();
@@ -43,6 +43,7 @@ export const ChildsPage = () => {
         <button onClick={onRandomSelectedChild} className='btn-randomChild'>SELECT A CHILD FOR ME</button>
 
       </div>
+      <Footer/>
     </>
     
   )

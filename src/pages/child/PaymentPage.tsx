@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useAuth } from '../auth/hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import { Footer } from '../../shared';
 
 export const PaymentPage = () => {
     const {status} = useAuth();
@@ -17,6 +18,7 @@ export const PaymentPage = () => {
     
     <>
     <h1>Payment Page</h1>
+    <Footer/>
     </>
   )
 }

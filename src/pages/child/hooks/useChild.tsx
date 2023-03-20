@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const useChild = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [limit, setLimit] = useState<number>(6);
+  const [limit, setLimit] = useState<number>(9);
   const [rangeValue, setRangeValue] = useState<number>(22);
   const [childsResponse, setChildsResponse] = useState<ChildsResponse>();
   const navigate = useNavigate();
