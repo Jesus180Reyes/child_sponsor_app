@@ -5,6 +5,7 @@ import { Footer, Navbar } from "../../shared";
 import { useLocation } from 'react-router-dom';
 import { CardChildComponent } from "../../components";
 import Swal from "sweetalert2";
+import { NotFoundPage } from "../../shared/NotFoundPage";
 
 export const SearchChild = () => {
     const location = useLocation();
@@ -30,8 +31,8 @@ export const SearchChild = () => {
    <Navbar/>
    <div className="child-searched-container">
     <p className="lbl-result-search">Results of "{location.state.input.toUpperCase()}"</p>
-    <CardChildComponent childsResponse={childByCode!}/>
-    {/* <Footer/> */}
+      <CardChildComponent childsResponse={childByCode!}/>
+      {/* <Footer/> */}
     </div>
    </>
   )

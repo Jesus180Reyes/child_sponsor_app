@@ -1,8 +1,13 @@
 import Svg from "../assets/cart-empty.svg";
 import { Navbar } from "./Navbar";
 import { useNavigate } from 'react-router-dom';
+import { FC } from 'react';
 
-export const NotFoundPage = () => {
+interface Props {
+  title: string;
+  description: string;
+}
+export const NotFoundPage:FC<Props> = ({title,description}) => {
   const navigate = useNavigate();
   const onSubmit = () => {
     navigate("/childs")
@@ -14,8 +19,8 @@ export const NotFoundPage = () => {
       <div className="cart-empty-box">
 
     <img src={Svg} alt="" />
-    <h1>Cart is empty</h1>
-    <h1>Add a child to the cart</h1>
+    <h1>{title}</h1>
+    <h1>{description}</h1>
     <button onClick={onSubmit}>Add A Child now</button>
       </div>
 

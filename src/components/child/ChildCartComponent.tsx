@@ -34,7 +34,7 @@ export const ChildCartComponent:FC<Props> = ({childCart}) => {
       }
       <div className="payment-box">
         <p>Subtotal ({childCart.length} children) </p><h1>US${38.00 * childCart.length}.00</h1>
-        <button onClick={()=> navigate("/payment")}>Proceder al pago</button>
+        <button onClick={()=> navigate("/payment")}>Pay Now</button>
       </div>
     </>
   )
