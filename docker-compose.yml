@@ -1,0 +1,48 @@
+version: '3'
+
+
+services:
+  app:
+    container_name: child_sponsor_server
+    image: jesus18reyes/child_sponsor_server
+    volumes:
+      - myapp:/app/
+    environment:
+      PORT: ${PORT}
+      MYSQL_DB: ${MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
+    ports:
+      - ${PORT}:${PORT}
+    depends_on:
+      - db
+    restart: always
+  db:
+    container_name: db
+    restart: always
+    image: mysql:debian
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      
+  phpMyAdmin:
+    container_name: phpMyAdmin
+    image: phpmyadmin
+    ports:
+      - 80:80
+    restart: always
+
+volumes:
+  myapp:
+    external: false
+  mysql:
+    external: false
+      
