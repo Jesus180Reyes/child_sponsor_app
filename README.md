@@ -6,16 +6,22 @@ To compilate this app you need to follow the respectives steps:
 **Step 1**
 
 
-Install `yarn`, install yarn using the command line ```npm install --global yarn``` **Note:** Restart your computer after installed.
+Install Docker [Click here to download Docker](https://www.docker.com)
 
 
 **Step 2**
 
 
-Install the project dependencies using the command `yarn`.
+Install `yarn`, install yarn using the command line ```npm install --global yarn``` **Note:** Restart your computer after installed.
 
 
 **Step 3**
+
+
+Install the project dependencies using the command `yarn`.
+
+
+**Step 4**
 
 
 Create `.env` archive an copy the environment variables what are in the file `example.env`.
